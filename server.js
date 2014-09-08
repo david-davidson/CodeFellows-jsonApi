@@ -10,14 +10,15 @@ app.get('/', function(request, response) {
 });
 
 app.get('/name/:name', function(request, response) {
-	response.send({
+	response.json({
 		'msg': 'Hello ' + request.params.name
 	});
 });
 
 app.get('/time', function(request, response) {
-	response.send({
-		'time': new Date().getHours() + ':' + new Date().getMinutes() 
+	var today = new Date();
+	response.json({
+		'time': today.getHours() + ':' + today.getMinutes()
 	});
 });
 
